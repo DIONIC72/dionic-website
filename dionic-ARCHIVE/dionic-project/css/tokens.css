@@ -1,0 +1,88 @@
+/* ============================================================
+   DIONIC — Design Tokens
+   All CSS custom properties. Import first in style.css.
+   ============================================================ */
+
+:root {
+  /* ── Brand Colors ── */
+  --black:      #08070C;
+  --dark:       #0D0C12;
+  --surface:    #141320;
+  --surface2:   #1B1A28;
+  --crimson:    #C41E30;
+  --crimson-l:  #E8253C;
+  --gold:       #E8A820;
+  --gold-l:     #F5C42A;
+  --white:      #F6F1EA;
+  --muted:      #7A7888;
+  --border:     rgba(232, 168, 32, 0.15);
+
+  /* ── Typography ── */
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-serif:   'Cormorant Garamond', 'Georgia', serif;
+  --font-body:    'Inter', 'Helvetica Neue', sans-serif;
+
+  /* ── Fluid Type Scale ── */
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3.5rem,   1rem    + 8vw,    9rem);
+
+  /* ── 4px Spacing System ── */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* ── Radius ── */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-gold:    0 0 32px rgba(232, 168, 32, 0.12);
+  --shadow-crimson: 0 0 32px rgba(196, 30,  48, 0.15);
+  --shadow-sm:      0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md:      0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg:      0 12px 32px rgba(0, 0, 0, 0.5);
+
+  /* ── Transitions ── */
+  --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Content Widths ── */
+  --content-narrow:  640px;
+  --content-default: 960px;
+  --content-wide:    1200px;
+}
+
+/* ── Light Mode Overrides ── */
+[data-theme="light"] {
+  --black:    #F5F0E8;
+  --dark:     #EDE8DF;
+  --surface:  #E4DECE;
+  --surface2: #D9D2C0;
+  --white:    #1A1714;
+  --muted:    #7A6F5E;
+  --border:   rgba(180, 130, 20, 0.18);
+  --shadow-gold:    0 0 32px rgba(180, 130, 20, 0.10);
+  --shadow-crimson: 0 0 32px rgba(196, 30,  48, 0.10);
+  --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.10);
+  --shadow-lg:  0 12px 32px rgba(0, 0, 0, 0.12);
+}

@@ -1,0 +1,20 @@
+{
+  "name": "dionic-website",
+  "version": "1.0.0",
+  "description": "Dionic — Creative Strategy & Agentic Solutions",
+  "homepage": "https://dionic.ca",
+  "scripts": {
+    "dev": "npx serve . --listen 3000",
+    "build": "echo 'Static site — no build step required. Deploy the root folder.'",
+    "preview": "npx serve . --listen 8080"
+  },
+  "keywords": ["dionic", "creative-strategy", "ai-agents"],
+  "author": "Dionic <hello@dionic.ca>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,20 @@
+[build]
+  publish = "dionic-april"
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "http://www.dionic.ca/*"
+  to   = "https://dionic.ca/:splat"
+  status = 301
+
+[[redirects]]
+  from = "https://www.dionic.ca/*"
+  to   = "https://dionic.ca/:splat"
+  status = 301
