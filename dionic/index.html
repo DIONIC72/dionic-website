@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dionic — Creative Strategy and Agentic Solutions. We redefine the creative landscape through human intuition and agentic intelligence.">
+  <title>Dionic — Creative Strategy & Agentic Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:     #08070C;
+      --dark:      #0D0C12;
+      --surface:   #141320;
+      --surface2:  #1B1A28;
+      --crimson:   #C41E30;
+      --crimson-l: #E8253C;
+      --gold:      #E8A820;
+      --gold-l:    #F5C42A;
+      --white:     #F6F1EA;
+      --muted:     #7A7888;
+      --border:    rgba(232, 168, 32, 0.18);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--crimson); border-radius: 2px; }
+    ::selection { background: var(--crimson); color: var(--white); }
+
+    /* ─── HERO TWO-COLUMN ─── */
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; gap: 2rem;
+    }
+    .hero-content { flex: 1 1 auto; max-width: 560px; }
+    .hero-visual {
+      flex: 0 0 auto; width: 420px;
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .hero-visual-glow {
+      position: absolute; width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(196, 30, 48, 0.18) 0%, rgba(232, 168, 32, 0.06) 40%, transparent 70%);
+      border-radius: 50%; animation: pulse-glow 4s ease-in-out infinite;
+    }
+    .hero-visual-ring {
+      position: absolute; width: 360px; height: 360px;
+      border: 1px solid rgba(232, 168, 32, 0.2); border-radius: 50%;
+      animation: spin-ring 22s linear infinite;
+    }
+    .hero-visual-ring::after {
+      content: ''; position: absolute; top: -4px; left: 50%;
+      transform: translateX(-50%); width: 8px; height: 8px;
+      background: var(--gold); border-radius: 50%;
+      box-shadow: 0 0 10px var(--gold);
+    }
+    .hero-visual-ring-2 {
+      position: absolute; width: 440px; height: 440px;
+      border: 1px solid rgba(232, 168, 32, 0.07); border-radius: 50%;
+      animation: spin-ring 45s linear infinite reverse;
+    }
+    .hero-visual-ring-2::after {
+      content: ''; position: absolute; bottom: -3px; right: 30%;
+      width: 5px; height: 5px;
+      background: var(--crimson); border-radius: 50%;
+      box-shadow: 0 0 8px var(--crimson);
+    }
+    .hero-visual-img {
+      position: relative; z-index: 1; width: 310px; height: auto;
+      filter: drop-shadow(0 0 50px rgba(232, 168, 32, 0.28))
+              drop-shadow(0 0 100px rgba(196, 30, 48, 0.12));
+      opacity: 0; animation: fadeIn 1s ease 1.1s forwards;
+    }
+
+    /* ─── BRAND SHEET (in About) ─── */
+    .brand-sheet-frame {
+      position: relative; border: 1px solid var(--border);
+      background: rgba(13, 12, 18, 0.7); padding: 0;
+      overflow: hidden;
+    }
+    .brand-sheet-frame::before {
+      content: 'BRAND SYSTEM'; position: absolute;
+      top: -0.55rem; left: 1.5rem; z-index: 2;
+      font-family: var(--font-body); font-size: 0.58rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); background: var(--dark); padding: 0 0.5rem; font-weight: 500;
+    }
+    .brand-sheet-about {
+      width: 100%; height: auto; display: block;
+      filter: brightness(0.95);
+      transition: filter 0.4s ease;
+    }
+    .brand-sheet-frame:hover .brand-sheet-about { filter: brightness(1.05); }
+    .brand-sheet-frame::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,12,18,0.4) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* ─── CURSOR GLOW ─── */
+    .cursor-glow {
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(232, 168, 32, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      position: fixed; pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s linear;
+      mix-blend-mode: screen;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.4rem 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s ease, border-color 0.4s ease;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(8, 7, 12, 0.9);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom-color: var(--border);
+    }
+    .nav-logo { height: 38px; width: auto; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      position: relative; transition: color 0.3s ease;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      padding: 0.6rem 1.5rem; border: 1px solid var(--crimson);
+      color: var(--white); background: transparent;
+      font-family: var(--font-body); font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .nav-cta:hover {
+      background: var(--crimson);
+      box-shadow: 0 0 20px rgba(196, 30, 48, 0.4);
+    }
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none;
+    }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s ease; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: var(--black); z-index: 90;
+      flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-display); font-size: 3rem; font-weight: 600;
+      font-style: italic; letter-spacing: 0.01em;
+      color: var(--white); text-decoration: none; transition: color 0.3s ease;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      overflow: hidden; padding: 0 4rem; padding-bottom: 6rem;
+    }
+    #hero-canvas { position: absolute; inset: 0; z-index: 0; }
+    .hero-noise {
+      position: absolute; inset: 0; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 180px; opacity: 0.35; pointer-events: none;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        radial-gradient(ellipse 55% 55% at 72% 50%, rgba(196, 30, 48, 0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 40% at 25% 35%, rgba(232, 168, 32, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 80% at 50% 100%, rgba(8, 7, 12, 0.95) 0%, transparent 60%);
+    }
+    .hero-starburst {
+      position: absolute; top: 50%; right: 12%;
+      transform: translateY(-50%);
+      width: 520px; height: 520px;
+      pointer-events: none; z-index: 1;
+    }
+    .hero-starburst::before {
+      content: ''; position: absolute; inset: 0;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg,   rgba(232, 168, 32, 0.7) 0.6deg, transparent 1.2deg,
+        transparent 18deg,  rgba(232, 168, 32, 0.55) 18.6deg, transparent 19.2deg,
+        transparent 36deg,  rgba(232, 168, 32, 0.75) 36.6deg, transparent 37.2deg,
+        transparent 54deg,  rgba(232, 168, 32, 0.5)  54.6deg, transparent 55.2deg,
+        transparent 72deg,  rgba(232, 168, 32, 0.7)  72.6deg, transparent 73.2deg,
+        transparent 90deg,  rgba(232, 168, 32, 0.55) 90.6deg, transparent 91.2deg,
+        transparent 108deg, rgba(232, 168, 32, 0.75) 108.6deg,transparent 109.2deg,
+        transparent 126deg, rgba(232, 168, 32, 0.5)  126.6deg,transparent 127.2deg,
+        transparent 144deg, rgba(232, 168, 32, 0.7)  144.6deg,transparent 145.2deg,
+        transparent 162deg, rgba(232, 168, 32, 0.55) 162.6deg,transparent 163.2deg,
+        transparent 180deg, rgba(232, 168, 32, 0.75) 180.6deg,transparent 181.2deg,
+        transparent 198deg, rgba(232, 168, 32, 0.5)  198.6deg,transparent 199.2deg,
+        transparent 216deg, rgba(232, 168, 32, 0.7)  216.6deg,transparent 217.2deg,
+        transparent 234deg, rgba(232, 168, 32, 0.55) 234.6deg,transparent 235.2deg,
+        transparent 252deg, rgba(232, 168, 32, 0.75) 252.6deg,transparent 253.2deg,
+        transparent 270deg, rgba(232, 168, 32, 0.5)  270.6deg,transparent 271.2deg,
+        transparent 288deg, rgba(232, 168, 32, 0.7)  288.6deg,transparent 289.2deg,
+        transparent 306deg, rgba(232, 168, 32, 0.55) 306.6deg,transparent 307.2deg,
+        transparent 324deg, rgba(232, 168, 32, 0.75) 324.6deg,transparent 325.2deg,
+        transparent 342deg, rgba(232, 168, 32, 0.5)  342.6deg,transparent 343.2deg
+      );
+      border-radius: 50%; opacity: 0.18;
+      animation: spin-rays 40s linear infinite;
+      mask-image: radial-gradient(ellipse 50% 50% at center, black 0%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, black 0%, transparent 75%);
+    }
+    @keyframes spin-rays { to { transform: rotate(360deg); } }
+
+    .hero-content { position: relative; z-index: 2; max-width: 950px; }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      color: var(--gold); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1.75rem;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(4.5rem, 11vw, 11rem);
+      font-weight: 700; line-height: 0.9;
+      letter-spacing: -0.01em; margin-bottom: 1.75rem;
+      opacity: 0; transform: translateY(30px);
+      animation: fadeUp 0.9s ease 0.5s forwards;
+    }
+    .t-gold    { color: var(--gold); }
+    .t-crimson { color: var(--crimson-l); }
+    .t-outline { -webkit-text-stroke: 2px var(--crimson-l); color: transparent; }
+
+    .hero-sub {
+      font-size: 1rem; font-weight: 300; color: var(--muted);
+      max-width: 460px; line-height: 1.85; margin-bottom: 2.75rem;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.8s ease 0.7s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.8s ease 0.9s forwards;
+    }
+
+    .btn-primary {
+      padding: 0.9rem 2.4rem; background: var(--crimson);
+      color: var(--white); font-family: var(--font-body);
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none; border: none; cursor: pointer;
+      position: relative; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .btn-primary::after {
+      content: ''; position: absolute; inset: 0; background: var(--crimson-l);
+      transform: translateX(-100%); transition: transform 0.35s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(196, 30, 48, 0.5); }
+    .btn-primary:hover::after { transform: translateX(0); }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-ghost {
+      padding: 0.9rem 2rem; background: transparent;
+      border: 1px solid rgba(244, 239, 232, 0.18);
+      color: var(--muted); font-family: var(--font-body);
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .scroll-indicator {
+      position: absolute; bottom: 2.5rem; left: 4rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      color: var(--muted); font-size: 0.68rem;
+      letter-spacing: 0.15em; text-transform: uppercase; z-index: 2;
+      opacity: 0; animation: fadeIn 1s ease 1.6s forwards;
+    }
+    .scroll-line {
+      width: 36px; height: 1px; background: rgba(122, 120, 136, 0.3);
+      position: relative; overflow: hidden;
+    }
+    .scroll-line::after {
+      content: ''; position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%; background: var(--gold);
+      animation: scan 2s ease 1.6s infinite;
+    }
+    @keyframes scan { 0%{left:-100%} 50%{left:0} 100%{left:100%} }
+
+    /* ─── MARQUEE ─── */
+    .marquee-wrapper {
+      overflow: hidden; border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border); padding: 0.9rem 0; background: var(--dark);
+    }
+    .marquee-track {
+      display: flex; gap: 2.5rem;
+      animation: marquee 22s linear infinite;
+      white-space: nowrap; width: max-content;
+    }
+    .marquee-item {
+      display: flex; align-items: center; gap: 1.25rem;
+      font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
+    }
+    .marquee-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 7rem 4rem; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      color: var(--gold); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .section-label::before { content: ''; display: block; width: 22px; height: 1px; background: var(--gold); }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 5vw, 5.5rem);
+      font-weight: 900; line-height: 0.92;
+      letter-spacing: -0.01em; text-transform: uppercase;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--dark); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-title { margin-bottom: 2rem; }
+    .about-title .accent { color: var(--crimson-l); }
+    .about-body { color: var(--muted); font-size: 0.92rem; line-height: 1.9; margin-bottom: 1.5rem; }
+    .about-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .stat-number { font-family: var(--font-display); font-size: 2.75rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
+
+    .about-right { position: relative; }
+    .about-logo-display {
+      position: relative; display: flex;
+      align-items: center; justify-content: center; padding: 3rem;
+    }
+    .logo-glow {
+      position: absolute; width: 380px; height: 380px;
+      background: radial-gradient(ellipse, rgba(196, 30, 48, 0.28) 0%, transparent 70%);
+      border-radius: 50%; animation: pulse-glow 4s ease-in-out infinite;
+    }
+    @keyframes pulse-glow { 0%,100%{transform:scale(1);opacity:0.5} 50%{transform:scale(1.1);opacity:1} }
+    .gold-ring {
+      position: absolute; width: 320px; height: 320px;
+      border: 1px solid rgba(232, 168, 32, 0.2); border-radius: 50%;
+      animation: spin-ring 20s linear infinite;
+    }
+    .gold-ring-2 {
+      position: absolute; width: 400px; height: 400px;
+      border: 1px solid rgba(232, 168, 32, 0.07); border-radius: 50%;
+      animation: spin-ring 35s linear infinite reverse;
+    }
+    .gold-ring::after, .gold-ring-2::after {
+      content: ''; position: absolute; top: -3px; left: 50%; transform: translateX(-50%);
+      width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
+    }
+    .gold-ring-2::after { width: 4px; height: 4px; top: -2px; background: var(--crimson); }
+    @keyframes spin-ring { to { transform: rotate(360deg); } }
+    .about-logo-img {
+      position: relative; z-index: 1; width: 260px; height: auto;
+      filter: drop-shadow(0 0 60px rgba(232, 168, 32, 0.28));
+      transition: filter 0.4s ease;
+    }
+    .about-logo-img:hover { filter: drop-shadow(0 0 80px rgba(232, 168, 32, 0.5)); }
+
+    /* ─── MISSION ─── */
+    #mission {
+      background: var(--black); padding: 7rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .mission-inner {
+      max-width: 1100px; margin: 0 auto; text-align: center; position: relative; z-index: 1;
+    }
+    .mission-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      color: var(--gold); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 2.5rem;
+    }
+    .mission-eyebrow::before, .mission-eyebrow::after {
+      content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5;
+    }
+    .mission-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.2vw, 3rem);
+      font-weight: 700; line-height: 1.25;
+      letter-spacing: 0.01em; text-transform: uppercase;
+    }
+    .mission-word {
+      display: inline-block; margin: 0 0.15em;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .mission-word.visible { opacity: 1; transform: translateY(0); }
+    .mission-word.w-gold { color: var(--gold); }
+    .mission-word.w-crimson { color: var(--crimson-l); }
+    .mission-word.w-muted { color: var(--muted); font-weight: 400; }
+
+    /* Background glow behind mission */
+    .mission-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 700px; height: 300px;
+      background: radial-gradient(ellipse, rgba(196, 30, 48, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ─── BRAND ICONS ─── */
+    #brand { background: var(--dark); }
+    .brand-header { margin-bottom: 4rem; }
+    .brand-sheet {
+      display: flex; justify-content: center; margin-bottom: 4rem;
+    }
+    .brand-sheet-img {
+      max-width: 480px; width: 100%; height: auto;
+      filter: drop-shadow(0 0 40px rgba(232, 168, 32, 0.1));
+      transition: filter 0.5s ease;
+    }
+    .brand-sheet-img:hover { filter: drop-shadow(0 0 60px rgba(232, 168, 32, 0.22)); }
+
+    .brand-icons-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+      background: var(--border);
+    }
+    .brand-icon-card {
+      background: var(--surface); padding: 2.5rem 2rem;
+      position: relative; overflow: hidden;
+      transition: background 0.4s ease, transform 0.3s ease;
+      cursor: default;
+    }
+    .brand-icon-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(232, 168, 32, 0.06) 0%, transparent 70%);
+      opacity: 0; transition: opacity 0.4s ease;
+    }
+    .brand-icon-card:hover { background: var(--surface2); transform: translateY(-2px); }
+    .brand-icon-card:hover::before { opacity: 1; }
+
+    .brand-icon-top {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;
+    }
+    .brand-icon-badge {
+      width: 36px; height: 36px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+      color: var(--gold); letter-spacing: 0.1em;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0;
+    }
+    .brand-icon-card:hover .brand-icon-badge {
+      border-color: var(--gold);
+      box-shadow: 0 0 12px rgba(232, 168, 32, 0.25);
+    }
+    .brand-icon-role {
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
+    }
+    .brand-icon-name {
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem;
+    }
+    .brand-icon-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.75; }
+
+    /* Glow effect on hover */
+    .brand-icon-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      transform: scaleX(0); transition: transform 0.4s ease;
+    }
+    .brand-icon-card:hover::after { transform: scaleX(1); }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--black); }
+    .services-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 3.5rem; gap: 1.5rem;
+    }
+    .services-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5px; background: var(--border);
+    }
+    .service-card {
+      background: var(--dark); padding: 3rem 2.75rem;
+      position: relative; overflow: hidden; transition: background 0.4s ease;
+    }
+    /* Shimmer sweep on hover */
+    .service-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(232, 168, 32, 0.04) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0s;
+    }
+    .service-card:hover::after {
+      transform: translateX(100%);
+      transition: transform 0.8s ease;
+    }
+    .service-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; width: 2px; height: 0%;
+      background: linear-gradient(to bottom, var(--gold), var(--crimson));
+      transition: height 0.5s ease; z-index: 1;
+    }
+    .service-card:hover::before { height: 100%; }
+    .service-card:hover {
+      background: var(--surface);
+      box-shadow: inset 0 0 60px rgba(232, 168, 32, 0.03);
+    }
+    .service-number {
+      font-family: var(--font-display); font-size: 6rem; font-weight: 900;
+      color: rgba(232, 168, 32, 0.08); line-height: 1;
+      position: absolute; top: 1rem; right: 1.75rem;
+      transition: color 0.4s ease; pointer-events: none; letter-spacing: -0.04em;
+    }
+    .service-card:hover .service-number { color: rgba(232, 168, 32, 0.15); }
+    .service-icon {
+      width: 46px; height: 46px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 2rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover .service-icon {
+      border-color: rgba(232, 168, 32, 0.5);
+      box-shadow: 0 0 16px rgba(232, 168, 32, 0.15);
+    }
+    .service-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .service-title { font-family: var(--font-display); font-size: 2.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .service-desc { color: var(--muted); font-size: 0.87rem; line-height: 1.85; margin-bottom: 2rem; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .tag {
+      padding: 0.28rem 0.7rem; border: 1px solid rgba(232, 168, 32, 0.14);
+      font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .service-card:hover .tag { border-color: rgba(232, 168, 32, 0.3); color: var(--gold-l); }
+
+    .why-strip { background: var(--crimson); padding: 3.5rem 2.75rem; margin-top: 1.5px; }
+    .why-strip-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(244, 239, 232, 0.55); margin-bottom: 2rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .why-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+    .why-desc { font-size: 0.84rem; line-height: 1.75; color: rgba(244, 239, 232, 0.68); }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--dark); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start; }
+    .contact-title { margin-bottom: 1.5rem; }
+    .contact-title .accent { color: var(--gold); }
+    .contact-body { color: var(--muted); font-size: 0.88rem; line-height: 1.85; margin-bottom: 2.5rem; }
+    .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-info-item { display: flex; align-items: center; gap: 0.875rem; color: var(--muted); font-size: 0.84rem; }
+    .contact-info-item svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+    .form-label { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .form-input, .form-textarea, .form-select {
+      background: var(--surface); color: var(--white);
+      border: 1px solid rgba(244, 239, 232, 0.07);
+      font-family: var(--font-body); font-size: 0.88rem; padding: 0.85rem 1rem;
+      outline: none; -webkit-appearance: none; appearance: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: rgba(232, 168, 32, 0.5);
+      box-shadow: 0 0 0 3px rgba(232, 168, 32, 0.06);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(122, 120, 136, 0.4); }
+    .form-textarea { resize: none; height: 130px; }
+    .form-select { cursor: pointer; color: var(--muted); }
+    .form-select option { background: var(--surface); }
+    .form-select:valid { color: var(--white); }
+    .btn-submit {
+      padding: 0.95rem 2.5rem; background: var(--crimson); color: var(--white);
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; border: none; cursor: pointer;
+      align-self: flex-start; position: relative; overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .btn-submit::after {
+      content: ''; position: absolute; inset: 0; background: var(--crimson-l);
+      transform: translateX(-100%); transition: transform 0.35s ease;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(196, 30, 48, 0.45); }
+    .btn-submit:hover::after { transform: translateX(0); }
+    .btn-submit span { position: relative; z-index: 1; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black); border-top: 1px solid var(--border);
+      padding: 2.5rem 4rem; display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem;
+    }
+    .footer-logo { height: 30px; width: auto; }
+    .footer-copy { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a {
+      font-size: 0.72rem; color: var(--muted); text-decoration: none;
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s ease;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .reveal {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.45s; }
+
+    /* ─── ICON STRIP ─── */
+    .icon-strip {
+      background: var(--surface); border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border); padding: 2rem 4rem;
+    }
+    .icon-strip-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 5rem; max-width: 900px; margin: 0 auto;
+    }
+    .icon-strip-item {
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      text-align: center;
+    }
+    .icon-strip-mark {
+      font-size: 1.5rem; color: var(--gold); line-height: 1;
+      filter: drop-shadow(0 0 6px rgba(232,168,32,0.4));
+    }
+    .icon-strip-label {
+      font-family: var(--font-display); font-size: 0.9rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--white);
+    }
+    .icon-strip-role {
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .icon-strip-divider {
+      width: 1px; height: 48px; background: var(--border); flex-shrink: 0;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1200px) {
+      .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+    }
+    @media (max-width: 1200px) {
+      .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+      .hero-visual { width: 340px; }
+      .hero-visual-img { width: 260px; }
+      .hero-visual-ring { width: 300px; height: 300px; }
+      .hero-visual-ring-2 { width: 370px; height: 370px; }
+    }
+    @media (max-width: 1024px) {
+      nav, footer { padding-left: 2.5rem; padding-right: 2.5rem; }
+      section { padding: 6rem 2.5rem; }
+      #hero { padding: 0 2.5rem; }
+      #mission { padding: 6rem 2.5rem; }
+      .hero-visual { display: none; }
+      .hero-content { max-width: 100%; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-right { display: block; }
+      .brand-sheet-about { max-width: 480px; margin: 0 auto; display: block; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .icon-strip { padding: 2rem 2.5rem; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-logo { height: 32px; }
+      section { padding: 4.5rem 1.25rem; }
+      #hero { padding: 0 1.25rem; min-height: 100svh; padding-top: 80px; }
+      #mission { padding: 4.5rem 1.25rem; }
+      .hero-title { letter-spacing: -0.01em; }
+      .hero-sub { font-size: 0.9rem; max-width: 100%; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .hero-starburst { display: none; }
+      .scroll-indicator { left: 1.25rem; bottom: 1.5rem; }
+      .about-stats { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .stat-number { font-size: 2.2rem; }
+      .services-grid { gap: 1px; }
+      .service-card { padding: 2.25rem 1.5rem; }
+      .service-number { font-size: 4rem; top: 0.75rem; right: 1.25rem; }
+      .why-strip { padding: 2.5rem 1.5rem; }
+      .why-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .icon-strip { padding: 1.75rem 1.25rem; }
+      .icon-strip-inner { gap: 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 2rem 1.25rem; gap: 1.25rem; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+      .cursor-glow { display: none; }
+    }
+    @media (max-width: 420px) {
+      .hero-title { font-size: clamp(3.5rem, 18vw, 5rem); }
+      .section-title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+      .mission-quote { font-size: clamp(1.3rem, 5vw, 2rem); }
+      .icon-strip-inner { flex-direction: column; gap: 1.25rem; }
+      .icon-strip-divider { width: 40px; height: 1px; }
+    }
+
+    /* ─── CHAT WIDGET ─── */
+    .chat-widget {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .chat-progress {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      padding: 1.25rem 1.5rem 0;
+    }
+    .chat-progress-dot {
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(122, 120, 136, 0.2);
+      transition: all 0.35s ease;
+    }
+    .chat-progress-dot.active {
+      background: var(--gold);
+    }
+    .chat-progress-dot.done {
+      background: rgba(232, 168, 32, 0.35);
+    }
+    .chat-history {
+      padding: 1.5rem 1.5rem 0.5rem;
+      min-height: 280px;
+      max-height: 460px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+    .chat-history::-webkit-scrollbar { width: 3px; }
+    .chat-history::-webkit-scrollbar-track { background: transparent; }
+    .chat-history::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .chat-bot-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 16px;
+      animation: fadeSlideUp 0.35s ease forwards;
+    }
+    .chat-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--white) 0%, #ccc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--black);
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-family: var(--font-display);
+      letter-spacing: 0;
+    }
+    .chat-bot-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(246, 241, 234, 0.88);
+      font-family: var(--font-body);
+      padding-top: 4px;
+      max-width: 380px;
+    }
+    .chat-user-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+      animation: fadeSlideUp 0.3s ease forwards;
+    }
+    .chat-user-bubble {
+      padding: 9px 15px;
+      border-radius: 12px 12px 4px 12px;
+      background: rgba(196, 30, 48, 0.18);
+      border: 1px solid rgba(196, 30, 48, 0.25);
+      color: rgba(246, 241, 234, 0.85);
+      font-size: 13px;
+      font-family: var(--font-body);
+      max-width: 280px;
+    }
+    .typing-dots {
+      display: flex;
+      gap: 4px;
+      padding: 6px 0;
+      align-items: center;
+    }
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--muted);
+      animation: typingDot 1.2s ease-in-out infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.15s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes typingDot {
+      0%, 60%, 100% { opacity: 0.3; transform: scale(1); }
+      30% { opacity: 1; transform: scale(1.25); }
+    }
+    .chat-options {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 10px;
+      margin-left: 38px;
+    }
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(27, 26, 40, 0.6);
+      color: var(--muted);
+      font-size: 13px;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all 0.22s ease;
+      text-align: left;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    .option-btn.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .option-btn:hover {
+      border-color: rgba(232, 168, 32, 0.45);
+      background: rgba(232, 168, 32, 0.06);
+      color: var(--white);
+    }
+    .option-btn .opt-icon {
+      font-size: 15px;
+      opacity: 0.65;
+      width: 18px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .chat-input-area {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+      margin-left: 38px;
+    }
+    .chat-text-input {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(244, 239, 232, 0.08);
+      background: var(--surface2);
+      color: var(--white);
+      font-size: 13px;
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      box-sizing: border-box;
+    }
+    .chat-text-input:focus {
+      border-color: rgba(232, 168, 32, 0.45);
+      box-shadow: 0 0 0 3px rgba(232, 168, 32, 0.05);
+    }
+    .chat-text-input::placeholder { color: rgba(122, 120, 136, 0.45); }
+    .chat-send-btn {
+      padding: 11px 22px;
+      border-radius: 10px;
+      border: none;
+      background: var(--crimson);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      letter-spacing: 0.04em;
+      align-self: flex-start;
+    }
+    .chat-send-btn:disabled {
+      background: rgba(244, 239, 232, 0.06);
+      color: var(--muted);
+      cursor: default;
+    }
+    .chat-send-btn:not(:disabled):hover {
+      background: var(--crimson-l);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(196, 30, 48, 0.4);
+    }
+    .chat-success-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 13px;
+      border-radius: 8px;
+      background: rgba(80, 200, 120, 0.1);
+      border: 1px solid rgba(80, 200, 120, 0.22);
+      font-size: 12px;
+      color: rgba(80, 200, 120, 0.9);
+      font-family: var(--font-body);
+      animation: checkIn 0.4s ease forwards;
+    }
+    .chat-reset-btn {
+      display: block;
+      margin-top: 12px;
+      padding: 7px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(244, 239, 232, 0.1);
+      background: transparent;
+      color: var(--muted);
+      font-size: 11px;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.06em;
+    }
+    .chat-reset-btn:hover {
+      border-color: rgba(244, 239, 232, 0.3);
+      color: var(--white);
+    }
+    .chat-footer-bar {
+      padding: 0.85rem 1.5rem;
+      border-top: 1px solid rgba(244, 239, 232, 0.05);
+      text-align: center;
+      font-size: 11px;
+      color: rgba(122, 120, 136, 0.4);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.06em;
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes checkIn {
+      from { opacity: 0; transform: scale(0.6); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* ─── AGENTIC WORKFLOW SECTION ─── */
+    #workflow {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 7rem 4rem;
+      overflow: hidden;
+    }
+    .workflow-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .workflow-header .section-label {
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .workflow-header .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+    .workflow-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 520px;
+      margin: 1rem auto 0;
+      line-height: 1.75;
+    }
+    .workflow-canvas {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+    .workflow-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+      min-width: 720px;
+    }
+    .wf-node {
+      flex-shrink: 0;
+      width: 148px;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem 1rem 1rem;
+      position: relative;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .wf-node:hover {
+      border-color: rgba(232, 168, 32, 0.5);
+      transform: translateY(-3px);
+    }
+    .wf-node-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.65rem;
+      font-size: 14px;
+    }
+    .wf-icon-trigger { background: rgba(196, 30, 48, 0.15); border: 1px solid rgba(196, 30, 48, 0.3); color: var(--crimson-l); }
+    .wf-icon-process { background: rgba(232, 168, 32, 0.1); border: 1px solid rgba(232, 168, 32, 0.25); color: var(--gold); }
+    .wf-icon-ai      { background: rgba(100, 80, 240, 0.12); border: 1px solid rgba(100, 80, 240, 0.25); color: #a08fff; }
+    .wf-icon-branch  { background: rgba(232, 168, 32, 0.1); border: 1px solid rgba(232, 168, 32, 0.25); color: var(--gold); }
+    .wf-icon-action  { background: rgba(50, 180, 120, 0.1); border: 1px solid rgba(50, 180, 120, 0.25); color: #50c878; }
+    .wf-icon-output  { background: rgba(196, 30, 48, 0.15); border: 1px solid rgba(196, 30, 48, 0.3); color: var(--crimson-l); }
+    .wf-node-label {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.01em;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      font-style: normal;
+    }
+    .wf-node-desc {
+      font-size: 0.65rem;
+      color: var(--muted);
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+    }
+    .wf-node-badge {
+      position: absolute;
+      top: -7px; right: 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.55rem;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      padding: 1px 5px;
+      text-transform: uppercase;
+    }
+    .wf-connector {
+      flex: 1;
+      height: 2px;
+      position: relative;
+      min-width: 20px;
+    }
+    .wf-connector::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(232, 168, 32, 0.35) 0px,
+        rgba(232, 168, 32, 0.35) 6px,
+        transparent 6px,
+        transparent 14px
+      );
+    }
+    .wf-connector::after {
+      content: '▶';
+      position: absolute;
+      right: -2px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 8px;
+      color: rgba(232, 168, 32, 0.5);
+      line-height: 1;
+    }
+    .wf-connector-animated::before {
+      animation: dashFlow 1.6s linear infinite;
+      background-size: 14px 2px;
+    }
+    @keyframes dashFlow {
+      from { background-position: 0 0; }
+      to   { background-position: 28px 0; }
+    }
+    .workflow-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .wf-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .wf-meta-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    @media (max-width: 1024px) {
+      #workflow { padding: 5rem 2.5rem; }
+    }
+    @media (max-width: 768px) {
+      #workflow { padding: 4rem 1.25rem; }
+      .workflow-canvas { -webkit-overflow-scrolling: touch; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"    onclick="closeMobile()">About</a>
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#workflow" onclick="closeMobile()">Agentic</a>
+    <a href="#contact"  onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- ─── NAV ─── -->
+  <nav id="navbar">
+    <img src="./assets/2026dionicLOGO.png" alt="Dionic" class="nav-logo">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#workflow">Agentic</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-noise"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-starburst"></div>
+
+    <div class="hero-inner" id="heroContent">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Creative Strategy &amp; Agentic Solutions</p>
+        <h1 class="hero-title">
+          <span class="t-gold">Think</span><br>
+          <span class="t-outline">Build</span><br>
+          <span>Scale</span>
+        </h1>
+        <p class="hero-sub">
+          Dionic fuses creative strategy with intelligent automation — crafting brands that resonate and deploying AI agents that perform.
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary"><span>Our Services</span></a>
+          <a href="#contact" class="btn-ghost">Start a Project</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual-glow"></div>
+        <div class="hero-visual-ring-2"></div>
+        <div class="hero-visual-ring"></div>
+        <img src="./assets/2026dionicLOGO.png" alt="Dionic" class="hero-visual-img">
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span class="scroll-line"></span>
+      Scroll to explore
+    </div>
+  </section>
+
+  <!-- ─── MARQUEE ─── -->
+  <div class="marquee-wrapper" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="marquee-dot"></span>Creative Strategy</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Agentic Solutions</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Brand Identity</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>AI Automation</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Digital Experience</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Intelligent Systems</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Dionic</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Creative Strategy</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Agentic Solutions</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Brand Identity</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>AI Automation</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Digital Experience</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Intelligent Systems</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Dionic</span>
+    </div>
+  </div>
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-left">
+        <p class="section-label reveal">Our Story</p>
+        <h2 class="section-title about-title reveal reveal-d1">
+          Where <span class="accent">Vision</span><br>Meets<br>Intelligence
+        </h2>
+        <p class="about-body reveal reveal-d2">
+          Dionic was built on a singular belief: the future belongs to those who combine creative thinking with the power of AI. We don't just design — we architect systems that think, adapt, and deliver.
+        </p>
+        <p class="about-body reveal reveal-d2">
+          From brand identity to autonomous agent deployments, every engagement is built to move the needle. We partner with forward-thinking businesses ready to define what comes next.
+        </p>
+        <div class="about-stats reveal reveal-d3">
+          <div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Client Focused</div>
+          </div>
+          <div>
+            <div class="stat-number">AI</div>
+            <div class="stat-label">Powered Strategy</div>
+          </div>
+          <div>
+            <div class="stat-number">.CA</div>
+            <div class="stat-label">Based. Global Reach</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-right reveal reveal-d4">
+        <div class="brand-sheet-frame">
+          <img src="./assets/brand-icons.png" alt="Dionic Brand System — Compass Icon, Synergy Symbol, Net-Drive Logo" class="brand-sheet-about">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MISSION ─── -->
+  <section id="mission">
+    <div class="mission-glow"></div>
+    <div class="mission-inner">
+      <p class="mission-eyebrow reveal">Our Mission</p>
+      <p class="mission-quote" id="missionQuote" aria-label="To redefine the creative landscape by fostering a synergy between human intuition and agentic intelligence, making world-class strategy accessible through automated precision.">
+        <!-- Words injected by JS for staggered animation -->
+      </p>
+    </div>
+  </section>
+
+  <!-- companion icons strip sits naturally between mission and services -->
+  <div class="icon-strip" aria-hidden="true">
+    <div class="icon-strip-inner">
+      <div class="icon-strip-item reveal">
+        <span class="icon-strip-mark">◈</span>
+        <span class="icon-strip-label">Compass Icon</span>
+        <span class="icon-strip-role">Progress</span>
+      </div>
+      <div class="icon-strip-divider"></div>
+      <div class="icon-strip-item reveal reveal-d1">
+        <span class="icon-strip-mark">⬡</span>
+        <span class="icon-strip-label">Synergy Symbol</span>
+        <span class="icon-strip-role">Integration</span>
+      </div>
+      <div class="icon-strip-divider"></div>
+      <div class="icon-strip-item reveal reveal-d2">
+        <span class="icon-strip-mark">◉</span>
+        <span class="icon-strip-label">Net-Drive Logo</span>
+        <span class="icon-strip-role">Tech-Strategy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SERVICES ─── -->
+  <section id="services">
+    <div class="services-header">
+      <div>
+        <p class="section-label reveal">What We Do</p>
+        <h2 class="section-title reveal reveal-d1">Our<br>Services</h2>
+      </div>
+      <a href="#contact" class="btn-ghost reveal">Start a Conversation &rarr;</a>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-number">01</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Creative Strategy</h3>
+        <p class="service-desc">We build brands with intention. From positioning and visual identity to campaign architecture and storytelling — we create the frameworks that make audiences stop, feel, and act.</p>
+        <div class="service-tags">
+          <span class="tag">Brand Identity</span>
+          <span class="tag">Positioning</span>
+          <span class="tag">Campaigns</span>
+          <span class="tag">Storytelling</span>
+          <span class="tag">Content Strategy</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-d1">
+        <span class="service-number">02</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Agentic Solutions</h3>
+        <p class="service-desc">Intelligent automation built for real business outcomes. We design, deploy, and manage AI agent systems that handle complex workflows, decision-making, and operations at scale.</p>
+        <div class="service-tags">
+          <span class="tag">AI Agents</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Workflow Design</span>
+          <span class="tag">LLM Integration</span>
+          <span class="tag">Custom Solutions</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-strip reveal">
+      <p class="why-strip-label">Why Dionic</p>
+      <div class="why-grid">
+        <div>
+          <h4 class="why-title">Strategy First</h4>
+          <p class="why-desc">Every system we build starts with a clear strategic foundation. Technology serves the vision, not the other way around.</p>
+        </div>
+        <div>
+          <h4 class="why-title">Built to Scale</h4>
+          <p class="why-desc">From launch to growth, our solutions evolve with your business. We architect for where you're going, not just where you are.</p>
+        </div>
+        <div>
+          <h4 class="why-title">Relentlessly Focused</h4>
+          <p class="why-desc">We take on select engagements to ensure deep focus on every client. Your success is our only metric.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AGENTIC WORKFLOW ─── -->
+  <section id="workflow">
+    <div class="workflow-header reveal">
+      <p class="section-label">How Agentic AI Works</p>
+      <h2 class="section-title">A System That <em class="t-gold">Thinks</em> for You</h2>
+      <p>Each Dionic agentic deployment runs as an interconnected node graph — triggers, AI reasoning, decisions, and automated actions firing in sequence without human intervention.</p>
+    </div>
+
+    <div class="workflow-canvas reveal reveal-d1">
+      <div class="workflow-row">
+
+        <!-- Node 1: Trigger -->
+        <div class="wf-node">
+          <span class="wf-node-badge">n8n · webhook</span>
+          <div class="wf-node-icon wf-icon-trigger">⚡</div>
+          <div class="wf-node-label">Trigger</div>
+          <div class="wf-node-desc">Lead submits form or CRM event fires</div>
+        </div>
+
+        <div class="wf-connector wf-connector-animated"></div>
+
+        <!-- Node 2: Data Capture -->
+        <div class="wf-node">
+          <span class="wf-node-badge">extract</span>
+          <div class="wf-node-icon wf-icon-process">◈</div>
+          <div class="wf-node-label">Data Layer</div>
+          <div class="wf-node-desc">Enriches & structures lead data in real-time</div>
+        </div>
+
+        <div class="wf-connector wf-connector-animated"></div>
+
+        <!-- Node 3: AI Analysis -->
+        <div class="wf-node">
+          <span class="wf-node-badge">llm · claude</span>
+          <div class="wf-node-icon wf-icon-ai">🧠</div>
+          <div class="wf-node-label">AI Reasoning</div>
+          <div class="wf-node-desc">Scores, qualifies & drafts BANT assessment</div>
+        </div>
+
+        <div class="wf-connector wf-connector-animated"></div>
+
+        <!-- Node 4: Decision -->
+        <div class="wf-node">
+          <span class="wf-node-badge">router</span>
+          <div class="wf-node-icon wf-icon-branch">⬡</div>
+          <div class="wf-node-label">Decision</div>
+          <div class="wf-node-desc">Routes high / mid / low-fit leads automatically</div>
+        </div>
+
+        <div class="wf-connector wf-connector-animated"></div>
+
+        <!-- Node 5: Action -->
+        <div class="wf-node">
+          <span class="wf-node-badge">crm · slack</span>
+          <div class="wf-node-icon wf-icon-action">→</div>
+          <div class="wf-node-label">Automate</div>
+          <div class="wf-node-desc">Fires CRM tasks, Slack alerts & follow-up emails</div>
+        </div>
+
+        <div class="wf-connector wf-connector-animated"></div>
+
+        <!-- Node 6: Output -->
+        <div class="wf-node">
+          <span class="wf-node-badge">report</span>
+          <div class="wf-node-icon wf-icon-output">◉</div>
+          <div class="wf-node-label">Outcome</div>
+          <div class="wf-node-desc">Daily digest & performance loop delivered</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="workflow-meta reveal reveal-d2">
+      <div class="wf-meta-item">
+        <span class="wf-meta-dot" style="background: var(--crimson-l);"></span>
+        Runs 24 / 7 without oversight
+      </div>
+      <div class="wf-meta-item">
+        <span class="wf-meta-dot" style="background: var(--gold);"></span>
+        Replaces manual 3-person processes
+      </div>
+      <div class="wf-meta-item">
+        <span class="wf-meta-dot" style="background: #a08fff;"></span>
+        Built on n8n + Claude AI + your existing stack
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <p class="section-label reveal">Get in Touch</p>
+        <h2 class="section-title contact-title reveal reveal-d1">
+          Let's Build<br>Something<br><span class="accent">Great</span>
+        </h2>
+        <p class="contact-body reveal reveal-d2">
+          Whether you're looking to elevate your brand, automate complex workflows, or explore what AI can do for your business — we'd love to hear your vision.
+        </p>
+        <div class="contact-info reveal reveal-d3">
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            hello@dionic.ca
+          </div>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            </svg>
+            Canada — Available Worldwide
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <!-- Hidden form for Netlify to detect fields at build time -->
+        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+          <input type="hidden" name="form-name" value="contact">
+          <input name="bot-field">
+          <input name="name">
+          <input name="email">
+          <input name="service">
+          <input name="challenge">
+          <input name="timeline">
+        </form>
+
+        <!-- Conversational chat widget -->
+        <div class="chat-widget reveal reveal-d2" id="dionicChat">
+          <div class="chat-progress" id="chatProgress"></div>
+          <div class="chat-history" id="chatHistory"></div>
+          <div class="chat-footer-bar">hello@dionic.ca &nbsp;·&nbsp; Canada &nbsp;·&nbsp; Available Worldwide</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <img src="./assets/2026dionicLOGO.png" alt="Dionic" class="footer-logo">
+    <p class="footer-copy">&copy; 2026 Dionic. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#workflow">Agentic</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    // ── CURSOR GLOW
+    const cursorGlow = document.getElementById('cursorGlow');
+    let cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+    let gx = cx, gy = cy;
+    window.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; });
+    (function animateCursor() {
+      gx += (cx - gx) * 0.12;
+      gy += (cy - gy) * 0.12;
+      cursorGlow.style.left = gx + 'px';
+      cursorGlow.style.top  = gy + 'px';
+      requestAnimationFrame(animateCursor);
+    })();
+
+    // ── CANVAS PARTICLES
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+
+    function resizeCanvas() {
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const GOLD   = [232, 168, 32];
+    const CRIMSON = [196, 30, 48];
+
+    for (let i = 0; i < 55; i++) {
+      const col = Math.random() > 0.6 ? CRIMSON : GOLD;
+      particles.push({
+        x: Math.random() * 1920,
+        y: Math.random() * 1080,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 1.5 + 0.5,
+        col, alpha: Math.random() * 0.4 + 0.1
+      });
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = W;
+        if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H;
+        if (p.y > H) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.col[0]},${p.col[1]},${p.col[2]},${p.alpha})`;
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 130) {
+            const lineAlpha = (1 - dist / 130) * 0.08;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = `rgba(232,168,32,${lineAlpha})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    // ── HERO PARALLAX (mouse)
+    const heroContent = document.getElementById('heroContent');
+    let hx = 0, hy = 0, tx = 0, ty = 0;
+    document.getElementById('hero').addEventListener('mousemove', e => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      tx = (e.clientX - rect.left - rect.width  / 2) * 0.012;
+      ty = (e.clientY - rect.top  - rect.height / 2) * 0.008;
+    });
+    (function animateParallax() {
+      hx += (tx - hx) * 0.06;
+      hy += (ty - hy) * 0.06;
+      heroContent.style.transform = `translate(${hx}px, ${hy}px)`;
+      requestAnimationFrame(animateParallax);
+    })();
+
+    // ── MISSION STATEMENT WORD REVEAL
+    const missionText = "To redefine the creative landscape by fostering a synergy between human intuition and agentic intelligence, making world-class strategy accessible through automated precision.";
+    const highlightWords = {
+      'redefine': 'w-crimson',
+      'synergy': 'w-gold',
+      'human': 'w-gold',
+      'intuition': 'w-gold',
+      'agentic': 'w-crimson',
+      'intelligence,': 'w-crimson',
+      'world-class': 'w-gold',
+      'automated': 'w-crimson',
+      'precision.': 'w-crimson'
+    };
+    const missionEl = document.getElementById('missionQuote');
+    missionText.split(' ').forEach((word, i) => {
+      const span = document.createElement('span');
+      span.className = 'mission-word' + (highlightWords[word.toLowerCase()] ? ' ' + highlightWords[word.toLowerCase()] : '');
+      span.textContent = word;
+      span.style.transitionDelay = (i * 0.045) + 's';
+      missionEl.appendChild(span);
+      if (i < missionText.split(' ').length - 1) {
+        missionEl.appendChild(document.createTextNode(' '));
+      }
+    });
+
+    // ── INTERSECTION OBSERVER (reveals + mission words)
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Mission words observer
+    const missionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.mission-word').forEach(w => w.classList.add('visible'));
+          missionObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    missionObserver.observe(missionEl);
+
+    // ── NAVBAR SCROLL
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── MOBILE MENU
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    function closeMobile() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ── SMOOTH ANCHOR SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    // ── DIONIC CHAT ENGINE
+    (function() {
+      const STEPS = [
+        {
+          id: 'welcome',
+          type: 'options',
+          message: 'Hey — welcome to Dionic. What brings you here today?',
+          options: [
+            { label: 'Brand & Creative Strategy', value: 'creative', icon: '◈' },
+            { label: 'AI / Agentic Solutions',    value: 'agentic', icon: '⬡' },
+            { label: 'Both — Full Package',        value: 'both',    icon: '◉' },
+            { label: 'Just exploring for now',     value: 'exploring', icon: '↗' },
+          ],
+        },
+        {
+          id: 'challenge',
+          type: 'options',
+          dynamicMessage: function(ans) {
+            return { creative: 'Nice — what\'s the creative challenge you\'re facing?', agentic: 'Great — what kind of automation are you thinking about?', both: 'Love the ambition. What\'s the main problem you\'re trying to solve?', exploring: 'No pressure. What caught your eye?' }[ans.welcome] || 'Tell us more about what you need.';
+          },
+          dynamicOptions: function(ans) {
+            return ({
+              creative:   [{ label: 'New brand from scratch', value: 'new_brand' }, { label: 'Rebrand / refresh', value: 'rebrand' }, { label: 'Campaign or launch', value: 'campaign' }, { label: 'Not sure yet', value: 'unsure' }],
+              agentic:    [{ label: 'Automate a workflow', value: 'workflow' }, { label: 'Build a custom AI agent', value: 'agent' }, { label: 'Integrate LLMs into our stack', value: 'llm' }, { label: 'Not sure yet', value: 'unsure' }],
+              both:       [{ label: 'Launching something new', value: 'new_launch' }, { label: 'Scaling what we have', value: 'scaling' }, { label: 'Complete digital overhaul', value: 'overhaul' }, { label: 'Not sure yet', value: 'unsure' }],
+              exploring:  [{ label: 'The creative work', value: 'creative_interest' }, { label: 'The AI / agent stuff', value: 'ai_interest' }, { label: 'The whole approach', value: 'approach_interest' }, { label: 'Just vibing', value: 'vibing' }],
+            })[ans.welcome] || [];
+          },
+        },
+        {
+          id: 'timeline',
+          type: 'options',
+          message: "What's your timeline looking like?",
+          options: [
+            { label: 'ASAP — ready to move', value: 'asap',     icon: '⚡' },
+            { label: 'Next few weeks',        value: 'weeks',   icon: '→'  },
+            { label: 'Next quarter',          value: 'quarter', icon: '◇' },
+            { label: 'Just planning ahead',   value: 'planning',icon: '…'  },
+          ],
+        },
+        {
+          id: 'contact',
+          type: 'input',
+          message: 'Perfect. Drop your details and we\'ll be in touch — usually within a day.',
+        },
+        {
+          id: 'done',
+          type: 'complete',
+          dynamicMessage: function(ans) {
+            var name = (ans.name || '').split(' ')[0] || 'there';
+            return 'Got it, ' + name + '. We\u2019ll review your info and reach out soon. Talk soon \u2736';
+          },
+        },
+      ];
+
+      var state = { step: 0, answers: {}, history: [], nameVal: '', emailVal: '' };
+
+      var histEl  = document.getElementById('chatHistory');
+      var progEl  = document.getElementById('chatProgress');
+      var TOTAL   = STEPS.filter(function(s){ return s.type !== 'complete'; }).length;
+
+      function getMessage(s, ans) {
+        return s.dynamicMessage ? s.dynamicMessage(ans) : s.message;
+      }
+      function getOptions(s, ans) {
+        return s.dynamicOptions ? s.dynamicOptions(ans) : (s.options || []);
+      }
+
+      function renderProgress() {
+        progEl.innerHTML = '';
+        for (var i = 0; i < TOTAL; i++) {
+          var dot = document.createElement('div');
+          dot.className = 'chat-progress-dot' + (i === state.step ? ' active' : (i < state.step ? ' done' : ''));
+          dot.style.width = i === state.step ? '20px' : '6px';
+          progEl.appendChild(dot);
+        }
+      }
+
+      function scrollBottom() {
+        histEl.scrollTop = histEl.scrollHeight;
+      }
+
+      function addBotBubble(text) {
+        var row = document.createElement('div');
+        row.className = 'chat-bot-row';
+        row.innerHTML = '<div class="chat-avatar">D</div><div class="chat-bot-text">' + text + '</div>';
+        histEl.appendChild(row);
+        scrollBottom();
+      }
+
+      function addUserBubble(text) {
+        var row = document.createElement('div');
+        row.className = 'chat-user-row';
+        row.innerHTML = '<div class="chat-user-bubble">' + text + '</div>';
+        histEl.appendChild(row);
+        scrollBottom();
+      }
+
+      function showTyping(cb) {
+        var row = document.createElement('div');
+        row.className = 'chat-bot-row';
+        row.id = 'typingRow';
+        row.innerHTML = '<div class="chat-avatar">D</div><div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+        histEl.appendChild(row);
+        scrollBottom();
+        setTimeout(function() {
+          var t = document.getElementById('typingRow');
+          if (t) t.remove();
+          cb();
+        }, 800);
+      }
+
+      function renderStep() {
+        renderProgress();
+        var s = STEPS[state.step];
+        if (!s) return;
+
+        showTyping(function() {
+          var msg = getMessage(s, state.answers);
+          if (s.type === 'options') {
+            addBotBubble(msg);
+            var opts = getOptions(s, state.answers);
+            var wrap = document.createElement('div');
+            wrap.className = 'chat-options';
+            opts.forEach(function(opt, i) {
+              var btn = document.createElement('button');
+              btn.className = 'option-btn';
+              btn.innerHTML = (opt.icon ? '<span class="opt-icon">' + opt.icon + '</span>' : '') + '<span>' + opt.label + '</span>';
+              btn.addEventListener('click', function() { handleOption(opt); });
+              wrap.appendChild(btn);
+              setTimeout(function(){ btn.classList.add('visible'); }, 120 + i * 75);
+            });
+            histEl.appendChild(wrap);
+            scrollBottom();
+
+          } else if (s.type === 'input') {
+            addBotBubble(msg);
+            var area = document.createElement('div');
+            area.className = 'chat-input-area';
+            area.id = 'chatInputArea';
+
+            var nameIn = document.createElement('input');
+            nameIn.className = 'chat-text-input';
+            nameIn.placeholder = 'Your name';
+            nameIn.type = 'text';
+            nameIn.value = state.nameVal;
+            nameIn.addEventListener('input', function(){ state.nameVal = this.value; sendBtn.disabled = !state.nameVal.trim() || !state.emailVal.trim(); });
+
+            var emailIn = document.createElement('input');
+            emailIn.className = 'chat-text-input';
+            emailIn.placeholder = 'your@email.com';
+            emailIn.type = 'email';
+            emailIn.value = state.emailVal;
+            emailIn.addEventListener('input', function(){ state.emailVal = this.value; sendBtn.disabled = !state.nameVal.trim() || !state.emailVal.trim(); });
+
+            var sendBtn = document.createElement('button');
+            sendBtn.className = 'chat-send-btn';
+            sendBtn.textContent = 'Send it \u2192';
+            sendBtn.disabled = !state.nameVal.trim() || !state.emailVal.trim();
+            sendBtn.addEventListener('click', handleSubmit);
+
+            area.appendChild(nameIn);
+            area.appendChild(emailIn);
+            area.appendChild(sendBtn);
+            histEl.appendChild(area);
+            scrollBottom();
+
+          } else if (s.type === 'complete') {
+            addBotBubble(getMessage(s, state.answers));
+            var wrap2 = document.createElement('div');
+            wrap2.style.marginLeft = '38px';
+            wrap2.style.marginTop = '8px';
+
+            var badge = document.createElement('div');
+            badge.className = 'chat-success-badge';
+            badge.innerHTML = '<span>\u2713</span> Message delivered';
+            wrap2.appendChild(badge);
+
+            var resetBtn = document.createElement('button');
+            resetBtn.className = 'chat-reset-btn';
+            resetBtn.textContent = 'Start over';
+            resetBtn.addEventListener('click', handleReset);
+            wrap2.appendChild(resetBtn);
+
+            histEl.appendChild(wrap2);
+            scrollBottom();
+          }
+        });
+      }
+
+      function handleOption(opt) {
+        // archive current bot message + user choice
+        state.history.push({ type: 'bot', text: getMessage(STEPS[state.step], state.answers) });
+        state.history.push({ type: 'user', text: opt.label });
+        state.answers[STEPS[state.step].id] = opt.value;
+
+        // clear interactive elements, add user bubble
+        var optWrap = histEl.querySelector('.chat-options');
+        if (optWrap) optWrap.remove();
+        addUserBubble(opt.label);
+
+        state.step++;
+        renderStep();
+      }
+
+      function handleSubmit() {
+        var name  = state.nameVal.trim();
+        var email = state.emailVal.trim();
+        if (!name || !email) return;
+
+        state.answers.name  = name;
+        state.answers.email = email;
+
+        var inputArea = document.getElementById('chatInputArea');
+        if (inputArea) inputArea.remove();
+        addUserBubble(name + ' \u2014 ' + email);
+
+        state.step++;
+        renderStep();
+
+        // POST to Netlify
+        var payload = new URLSearchParams({
+          'form-name': 'contact',
+          name:      name,
+          email:     email,
+          service:   state.answers.welcome   || '',
+          challenge: state.answers.challenge || '',
+          timeline:  state.answers.timeline  || '',
+        });
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: payload.toString(),
+        }).catch(function(){});
+
+        // Inject structured JSON-LD for agent/bot consumption
+        var existing = document.getElementById('contactActionSchema');
+        if (existing) existing.remove();
+        var ld = document.createElement('script');
+        ld.id   = 'contactActionSchema';
+        ld.type = 'application/ld+json';
+        ld.text = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type':    'ContactAction',
+          agent:  { '@type': 'Person', name: name, email: email },
+          object: { service: state.answers.welcome, challenge: state.answers.challenge, timeline: state.answers.timeline },
+          startTime: new Date().toISOString(),
+        });
+        document.head.appendChild(ld);
+      }
+
+      function handleReset() {
+        state = { step: 0, answers: {}, history: [], nameVal: '', emailVal: '' };
+        histEl.innerHTML = '';
+        renderStep();
+      }
+
+      // Boot
+      renderStep();
+    })();
+  </script>
+</body>
+</html>
